@@ -167,17 +167,17 @@ prompt_status() {
 }
 
 prompt_svn() {
-      if svn_is_inside; then
-            ZSH_THEME_SVN_PROMPT_DIRTY='±'
-                local ref dirty
-                    if svn_parse_dirty; then
-                              dirty=$ZSH_THEME_SVN_PROMPT_DIRTY
-                                    prompt_segment yellow black
-                                        else
-                                                  prompt_segment green black
-                                                      fi
-                                                          echo -n "⭠ $(svn_branch_name) $(svn_rev)$dirty"
-                                                            fi
+  if svn_is_inside; then
+   ZSH_THEME_SVN_PROMPT_DIRTY='±'
+   local ref dirty
+   if svn_parse_dirty; then
+    dirty=$ZSH_THEME_SVN_PROMPT_DIRTY
+    prompt_segment yellow black
+   else
+    prompt_segment green black
+   fi
+    echo -n "⭠ $(svn_branch_name) $(svn_rev)$dirty"
+  fi
 }
 
 ## Main prompt
